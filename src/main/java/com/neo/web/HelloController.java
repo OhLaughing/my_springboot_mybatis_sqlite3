@@ -30,10 +30,6 @@ public class HelloController {
     @RequestMapping("/admin1")
     public String admin1(Model model){
         List<UserEntity> users = userMapper.getAll();
-        for(UserEntity userEntity : users) {
-            System.out.println(userEntity.getUserName());
-            System.out.println(userEntity.getUserSex());
-        }
         model.addAttribute("users", users);
         return "admin1";
     }
