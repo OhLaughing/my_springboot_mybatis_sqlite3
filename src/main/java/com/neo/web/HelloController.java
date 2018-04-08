@@ -16,25 +16,38 @@ import java.util.List;
 @RequestMapping("/")
 public class HelloController {
 
-    @Autowired private UserMapper userMapper;
+    @Autowired
+    private UserMapper userMapper;
+
     @RequestMapping("/index1")
-    public String index1(){
+    public String index1() {
         return "index1";
     }
 
     @RequestMapping("/index2")
-    public String index2(){
+    public String index2() {
         return "index2";
     }
 
     @RequestMapping("/admin1")
-    public String admin1(Model model){
+    public String admin1(Model model) {
         List<UserEntity> users = userMapper.getAll();
         model.addAttribute("users", users);
         return "admin1";
     }
+
     @RequestMapping("/admin2")
-    public String admin2(){
+    public String admin2() {
         return "admin2";
+    }
+
+    @RequestMapping("/test2")
+    public String test2() {
+        return "test2";
+    }
+
+    @RequestMapping("/test3")
+    public String test3() {
+        return "test3";
     }
 }

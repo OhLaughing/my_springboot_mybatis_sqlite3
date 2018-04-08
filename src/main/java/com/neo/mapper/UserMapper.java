@@ -1,19 +1,21 @@
 package com.neo.mapper;
 
-import java.util.List;
-
 import com.neo.entity.UserEntity;
 
+import java.util.List;
+
 public interface UserMapper {
-	
-	List<UserEntity> getAll();
-	
-	UserEntity getOne(Long id);
 
-	void insert(UserEntity user);
+    List<UserEntity> getAll();
 
-	void update(UserEntity user);
+    List<UserEntity> getAllByLimit(int limit, int offset);
 
-	void delete(Long id);
+    UserEntity getOne(Long id);
+
+    void insert(UserEntity user);
+
+    void update(UserEntity user);
+
+    void delete(Long id);
 
 }

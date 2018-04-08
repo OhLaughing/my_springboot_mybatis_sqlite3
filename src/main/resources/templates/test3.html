@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>表格</title>
+    <meta name="keywords" content="表格"/>
+    <meta name="description" content="这真的是一个表格"/>
+    <meta name="HandheldFriendly" content="True"/>
+    <link rel="stylesheet" href="../static/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../static/bootstrap-table.css"/>
+    <script src="../static/jquery.min.js"></script>
+    <script src="../static/bootstrap.min.js"></script>
+    <script src="../static/bootstrap-table.js"></script>
+    <script src="../static/bootstrap-table-zh-CN.js"></script>
+
+</head>
+
+<body>
+<table id="table">
+</table>
+<p>hello</p>
+<!--<script type="application/javascript">-->
+    <!--$(function () {-->
+        <!--//初始化Table-->
+        <!--var oTable = new TableInit();-->
+        <!--oTable.Init();-->
+    <!--});-->
+
+    <!--function doQuery(params) {-->
+        <!--$('#table').bootstrapTable('refresh');    //刷新表格-->
+    <!--}-->
+
+    <!--var TableInit = function () {-->
+        <!--var oTableInit = new Object();-->
+        <!--//初始化Table-->
+        <!--oTableInit.Init = function () {-->
+            <!--$('#table').bootstrapTable({-->
+                <!--contentType: "application/x-www-form-urlencoded",//必须要有！！！！-->
+                <!--url: '/getTable',         //请求后台的URL（*）-->
+                <!--method: 'get',                      //请求方式（*）-->
+                <!--dataType: 'json',-->
+                <!--toolbar: '#query',                //工具按钮用哪个容器-->
+                <!--pagination: true,                   //是否显示分页（*）-->
+                <!--sortOrder: "asc",                   //排序方式-->
+                <!--queryParamsType: "",-->
+                <!--queryParams: oTableInit.queryParams,//传递参数（*）-->
+                <!--sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）-->
+                <!--clickToSelect: true,                //是否启用点击选中行-->
+                <!--uniqueId: "id",                     //每一行的唯一标识，一般为主键列-->
+                <!--queryParamsType: "",-->
+                <!--responseHandler: oTableInit.responseHandler,-->
+                <!--silent: true,  //刷新事件必须设置-->
+
+<!--//                queryParams: function(params) {-->
+<!--//-->
+<!--//                return {-->
+<!--//                    offset: params.offset+1,-->
+<!--//                    limit: params.limit,-->
+<!--////                    companyId:subcompany,-->
+<!--////                    name:name-->
+<!--//                };-->
+<!--//            },-->
+
+                <!--columns: [-->
+                    <!--{-->
+                        <!--field: 'id',-->
+                        <!--title: '序号',-->
+
+                        <!--align: 'center'-->
+                    <!--}, {-->
+                        <!--field: 'userName',-->
+                        <!--title: '用户名',-->
+                        <!--align: 'center'-->
+                    <!--}, {-->
+                        <!--field: 'userSex',-->
+                        <!--title: '性别',-->
+                        <!--align: 'center'-->
+                    <!--}, {-->
+                        <!--field: 'nickName',-->
+                        <!--title: 'bieming',-->
+                        <!--align: 'center'-->
+                    <!--}-->
+                <!--]-->
+            <!--});-->
+        <!--};-->
+
+        <!--oTableInit.responseHandler = function (res) { //数据筛选-->
+            <!--if (res) {-->
+                <!--return {-->
+                    <!--"rows": res.list,-->
+                    <!--"total": res.total-->
+                <!--};-->
+            <!--} else {-->
+                <!--return {-->
+                    <!--"rows": [],-->
+                    <!--"total": 0-->
+                <!--};-->
+            <!--}-->
+        <!--}-->
+
+        <!--//得到查询的参数-->
+        <!--oTableInit.queryParams = function (params) {-->
+            <!--var temp = {-->
+<!--//                limit: params.pageSize,-->
+<!--//                page: params.pageNumber-->
+                <!--limit: 1,-->
+                <!--page: 1-->
+            <!--};-->
+<!--//            $.each(params, function (index, value) {-->
+<!--//                console.log(index + "-&#45;&#45;" + value);-->
+<!--//            })-->
+            <!--return temp;-->
+        <!--};-->
+        <!--return oTableInit;-->
+    <!--};-->
+<!--</script>-->
+<script>
+    $(function(){
+        $("#testAjax").click(function(){
+            <!--$('#table').bootstrapTable({-->
+            $('#table').bootstrapTable({
+                contentType: "application/x-www-form-urlencoded",//必须要有！！！！
+                url: '/getUsers',         //请求后台的URL（*）
+                method: 'get'
+
+
+            });
+            document.getElementById("myid").innerHTML = "modify";
+            alert("heh")
+        });
+
+
+    });
+</script>
+<p id="myid">world</p>
+<button id="testAjax" type="button">Ajax改变内容</button>
+</body>
+
+</html>
