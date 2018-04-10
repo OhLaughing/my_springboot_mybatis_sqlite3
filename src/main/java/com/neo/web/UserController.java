@@ -6,12 +6,12 @@ import com.neo.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
+
+import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 @Controller
 public class UserController {
@@ -27,15 +27,18 @@ public class UserController {
         return users;
     }
 
-    @RequestMapping(value = "/getTable", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
+    @RequestMapping(value = "/getTable", method = POST, produces = "application/json;charset=UTF-8")
     @ResponseBody
     public TableResult getTable(int limit, int offset) {
         System.out.println("in table controller");
         System.out.println("pageNumber: " + limit + " offset: " + offset);
-        List<UserEntity> rows = userMapper.getAllByLimit(1,10);
+        List<UserEntity> rows = userMapper.getAllByLimit(limit * (offset - 1), limit);
+        int total = userMapper.getAll().size();
         TableResult result = new TableResult();
-        result.setTotalCount(10);
+        result.setTotal(total);
+        result.setPage(offset);
         result.addRows(rows);
+        System.out.println(result);
         return result;
     }
 
@@ -59,13 +62,21 @@ public class UserController {
         userMapper.update(user);
     }
 
-    @RequestMapping(value = "/delete/{id}")
-    public void delete(@PathVariable("id") Long id) {
-        userMapper.delete(id);
+    @RequestMapping(value = "/delete", method = POST)
+    @ResponseBody
+    public void delete(String id) {
+        System.out.println(id);
+        String[] ids = id.split(",");
+
+        for (String s : ids) {
+            userMapper.delete(Long.valueOf(s));
+        }
     }
 
-
-
-
+    @RequestMapping("123")
+    @ResponseBody
+    public void test() {
+        System.out.println("in test");
+    }
 
 }
