@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8"/>
     <title>Title</title>
@@ -43,6 +43,12 @@
             deleteUser(ids);
         }
     </script>
+    <style>
+        table {
+            table-layout: fixed;
+        }
+
+    </style>
 </head>
 <body>
 <h1>GU offline</h1>
@@ -60,7 +66,7 @@
             <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#addModal">
                 <span class="glyphicon glyphicon-plus">增加</span>
             </button>
-            <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#deleteModal">
+            <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#deleteModal" onclick="deleteUserList()">
                 <span class="glyphicon glyphicon-trash">删除</span>
             </button>
             <button type="button" class="btn btn-default btn-sm">
@@ -180,16 +186,26 @@
                     valign: 'middle'
                 }, {
                     field: 'id',
-                    title: 'ID'
+                    title: 'ID',
+                    width:100
                 }, {
                     field: 'userName',
-                    title: 'Name'
+                    title: 'Name',
+                    width:300
                 }, {
                     field: 'userSex',
-                    title: 'Sex'
+                    title: 'Sex',
+                    width:100
                 }, {
                     field: 'nickName',
-                    title: 'nickName'
+                    title: 'nickName',
+                    cellStyle: {
+                        css: {
+                            "overflow": "hidden",
+                            "text-overflow": "ellipsis",
+                            "white-space": "nowrap"
+                        }
+                    }
                 }]
         });
 
