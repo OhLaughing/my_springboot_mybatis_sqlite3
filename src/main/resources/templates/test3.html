@@ -21,13 +21,13 @@
             var msg = "确认删除？";
             if (confirm(msg) == true) {
                 $.ajax({
-                    url: "/delete",
-                    type: 'get',
+                    url: "delete",
+                    type: 'post',
                     data: {
                         id: ids
                     },
                     success: function (data) {
-                        alter(data.msg);
+//                        alter(data.msg);
                         $("#table").bootstrapTable('refresh', {url: 'getTable'})
                     }
                 });
