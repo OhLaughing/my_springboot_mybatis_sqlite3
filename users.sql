@@ -37,6 +37,21 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`)
 ) ;
 
+insert into users (userName, passWord, user_sex, nick_name) values ("name1", "abcd", "MAN", "nickname1111");
+insert into users (userName, passWord, user_sex, nick_name) values ("name2", "abcd", "MAN", "nickname1111");
+insert into users (userName, passWord, user_sex, nick_name) values ("name3", "abcd", "MAN", "nickname1111");
+insert into users (userName, passWord, user_sex, nick_name) values ("name4", "abcd", "MAN", "nickname1111");
+insert into users (userName, passWord, user_sex, nick_name) values ("name5", "abcd", "MAN", "nickname1111");
+insert into users (userName, passWord, user_sex, nick_name) values ("name6", "abcd", "MAN", "nickname1111");
+insert into users (userName, passWord, user_sex, nick_name) values ("name7", "abcd", "MAN", "nickname1111");
+insert into users (userName, passWord, user_sex, nick_name) values ("name8", "abcd", "MAN", "nickname1111");
+insert into users (userName, passWord, user_sex, nick_name) values ("name9", "abcd", "MAN", "nickname1111");
+insert into users (userName, passWord, user_sex, nick_name) values ("name10", "abcd", "MAN", "nickname1111");
+insert into users (userName, passWord, user_sex, nick_name) values ("name11", "abcd", "MAN", "nickname1111");
+insert into users (userName, passWord, user_sex, nick_name) values ("name12", "abcd", "MAN", "nickname1111");
+insert into users (userName, passWord, user_sex, nick_name) values ("name13", "abcd", "MAN", "nickname1111");
+insert into users (userName, passWord, user_sex, nick_name) values ("name14", "abcd", "MAN", "nickname1111");
+
 
 CREATE TABLE OMMBSERVER (
   OMMBID integer PRIMARY KEY AUTOINCREMENT,
