@@ -47,7 +47,6 @@
         table {
             table-layout: fixed;
         }
-
     </style>
 </head>
 <body>
@@ -187,7 +186,8 @@
                 }, {
                     field: 'id',
                     title: 'ID',
-                    width:100
+                    width:100,
+                    sortable:true
                 }, {
                     field: 'userName',
                     title: 'Name',
@@ -205,7 +205,9 @@
                             "text-overflow": "ellipsis",
                             "white-space": "nowrap"
                         }
-                    }
+                    },
+                    button:'...',
+                    id:'nickname'
                 }]
         });
 
