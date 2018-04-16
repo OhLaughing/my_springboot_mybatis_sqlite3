@@ -10,7 +10,8 @@ import java.util.List;
  * Created by gustaov on 2018/4/6.
  */
 public class TableResult {
-    private int totalCount;
+    private int total;
+    private int page;
     private JSONArray rows;
 
     public TableResult(){
@@ -20,12 +21,20 @@ public class TableResult {
         rows.addAll(list);
     }
 
-    public int getTotalCount() {
-        return totalCount;
+    public int getPage() {
+        return page;
     }
 
-    public void setTotalCount(int totalCount) {
-        this.totalCount = totalCount;
+    public void setPage(int page) {
+        this.page = page;
+    }
+
+    public int getTotal() {
+        return total;
+    }
+
+    public void setTotal(int total) {
+        this.total = total;
     }
 
     public JSONArray getRows() {
@@ -34,14 +43,15 @@ public class TableResult {
 
     public String toString(){
         JSONObject json = new JSONObject();
-        json.fluentPut("total", totalCount);
+        json.fluentPut("total", total);
         json.fluentPut("rows", rows);
+        json.fluentPut("page", page);
         return json.toString();
     }
 
     public static void main(String[] args) {
         TableResult table = new TableResult();
-        table.setTotalCount(3);
+        table.setTotal(3);
         List<String> data = new ArrayList<>();
         data.add("hello");
         data.add("world");
